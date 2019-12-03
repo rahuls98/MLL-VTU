@@ -38,5 +38,11 @@ for ind,row in enumerate(data):
             else:
                 g[j][j] = '?'
 
+popindex = []
+final_g = []
+for i in range(len(s)):
+    if g[i] != ['?']*len(s):
+        final_g.append(g[i])
+
 print(s)
-print(g)
+print(final_g)
