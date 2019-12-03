@@ -28,6 +28,7 @@ for ind,row in enumerate(data):
         for j in range(len(s)):
             if row[j] != s[j]:
                 s[j] = '?'
+            if s[j]!=g[j][j] and g[j][j]!='?'
                 g[j][j] = '?'
 
     #if target of concept is 'N'
@@ -35,8 +36,6 @@ for ind,row in enumerate(data):
         for j in range(len(s)):
             if row[j] != s[j]:
                 g[j][j] = s[j]
-            else:
-                g[j][j] = '?'
 
 popindex = []
 final_g = []
