@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 hypo = ['%','%','%','%','%','%']
 
-lines = csv.reader(open('../P2/1_2.csv'))
+lines = csv.reader(open('datasets/1_2.csv'))
 data = list(lines)
 print("\nTraining data:\n")
 for row in data:
