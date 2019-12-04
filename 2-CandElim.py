@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 #read data
-dataset = pd.read_csv('1_2.csv')
+dataset = pd.read_csv('datasets/1_2.csv')
 
 #separate data and targets
 data = np.array(dataset.iloc[:,:-1])
