@@ -69,11 +69,28 @@ def id3(data):
         root.branches[val] = id3(data.loc[data[split_attr]==val].drop(split_attr, axis=1))
     return root
 
+def get_rules(node, rule, rule_set):
+    if not node.branches:
+        rule_set.append(rule[:-2] + "=" + node.label)
+        return rule_set
+    
+    for val in node.branches:
+        get_rules(node.branches[val], rule + node.label + "=" + val + " ^ ", rule_set)
+        
+    return rule_set
+
+def test(node, test_rule):
+    if not node.branches:
+        return node.label
+        
+    return test(node.branches[test_rule[node.label]], test_rule)
 
 def main():
     data = pd.read_csv('datasets/3.csv')
     tree = id3(data)
-
-    #print(tree.branches['Sunny'].branches['Normal'].label)
+    rules = get_rules(tree, "", [])
+    print(rules)
+    result = test(tree, {'Outlook':'Overcast', 'Windy':'F'})
+    print(result)
 
 main()
